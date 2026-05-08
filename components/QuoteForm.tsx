@@ -190,9 +190,19 @@ export default function QuoteForm({ variant = "full" }: QuoteFormProps) {
         {status === "sending" ? "Sending..." : "Get My Free Quote"}
       </button>
 
-      <p className="text-xs text-gray-500 text-center">
-        Your enquiry is forwarded to a licensed NZ insurance adviser. No spam, no obligation.
-      </p>
+      <div className="flex flex-wrap gap-1.5 justify-center pt-1">
+        {[
+          { icon: "🔒", label: "Licensed Advisers" },
+          { icon: "⚡", label: "1 Business Day" },
+          { icon: "💬", label: "No Obligation" },
+          { icon: "🛡️", label: "Confidential" },
+        ].map((pill) => (
+          <span key={pill.label} className="inline-flex items-center gap-1 bg-violet-50 border border-violet-200 text-violet-700 rounded-full px-3 py-1 text-xs font-medium">
+            <span>{pill.icon}</span>
+            <span>{pill.label}</span>
+          </span>
+        ))}
+      </div>
     </form>
   )
 }

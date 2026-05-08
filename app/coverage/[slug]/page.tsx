@@ -21,21 +21,17 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 
 // Distinct young-creator images per coverage type
 const heroImages: Record<string, string> = {
-  "public-liability":
-    "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&auto=format&fit=crop&q=80",
-  "equipment-gear":
-    "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=1600&auto=format&fit=crop&q=80",
-  "cyber-privacy":
-    "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=1600&auto=format&fit=crop&q=80",
-  "professional-indemnity":
-    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1600&auto=format&fit=crop&q=80",
+  "public-liability":        "/images/creator-event.png",
+  "equipment-gear":          "/images/creator-travel.png",
+  "cyber-privacy":           "/images/creator-desk.png",
+  "professional-indemnity":  "/images/creator-beauty.png",
 }
 
 const heroOverlays: Record<string, string> = {
-  "public-liability":    "from-violet-950/85 via-purple-900/75 to-indigo-900/60",
-  "equipment-gear":      "from-indigo-950/85 via-indigo-900/75 to-purple-900/60",
-  "cyber-privacy":       "from-purple-950/85 via-fuchsia-900/75 to-purple-800/60",
-  "professional-indemnity": "from-slate-950/85 via-indigo-900/75 to-slate-800/60",
+  "public-liability":        "from-violet-950/65 via-purple-900/50 to-indigo-900/35",
+  "equipment-gear":          "from-indigo-950/65 via-indigo-900/50 to-purple-900/35",
+  "cyber-privacy":           "from-purple-950/65 via-fuchsia-900/50 to-purple-800/35",
+  "professional-indemnity":  "from-slate-950/65 via-indigo-900/50 to-slate-800/35",
 }
 
 export default function CoverageSlugPage({ params }: { params: { slug: string } }) {
@@ -194,7 +190,7 @@ export default function CoverageSlugPage({ params }: { params: { slug: string } 
             {/* Right: sticky quote form */}
             <div className="lg:col-span-1">
               <div className="sticky top-24 space-y-4">
-                <div id="get-quote" className="bg-white border border-gray-200 rounded-2xl shadow-xl p-6">
+                <div id="get-quote" className="bg-white border-2 border-violet-400 rounded-2xl shadow-xl p-6">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-2xl">{cover.icon}</span>
                     <h3 className="text-lg font-bold text-gray-900">Get a Quote</h3>

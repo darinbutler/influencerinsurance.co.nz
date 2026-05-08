@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 }
 
 const coverImages = [
-  "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=900&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=900&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=900&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&auto=format&fit=crop&q=80",
+  "/images/creator-event.png",    // public-liability
+  "/images/creator-travel.png",   // equipment-gear
+  "/images/creator-desk.png",     // cyber-privacy
+  "/images/creator-beauty.png",   // professional-indemnity
 ]
 
 const accentColors = [
@@ -221,7 +221,7 @@ export default function CoveragePage() {
             </div>
 
             {/* Right: form */}
-            <div className="bg-white rounded-2xl shadow-2xl p-8">
+            <div className="bg-white rounded-2xl shadow-2xl border-2 border-violet-400 p-8">
               <h3 className="text-xl font-bold text-gray-900 mb-1">Get Your Quote</h3>
               <p className="text-gray-500 text-sm mb-6">No obligation. No spam. Just expert advice.</p>
               <QuoteForm variant="full" />

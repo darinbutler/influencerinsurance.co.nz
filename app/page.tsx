@@ -43,26 +43,61 @@ const trustBadges = [
   { icon: "⚡", text: "Response within 1 business day" },
 ]
 
+const creatorTypes = [
+  {
+    icon: "📸", label: "Instagram", href: "/creators/instagram-influencers/",
+    img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&auto=format&fit=crop&q=80",
+  },
+  {
+    icon: "▶️", label: "YouTube", href: "/creators/youtube-creators/",
+    img: "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=600&auto=format&fit=crop&q=80",
+  },
+  {
+    icon: "🎵", label: "TikTok", href: "/creators/tiktok-creators/",
+    img: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=600&auto=format&fit=crop&q=80",
+  },
+  {
+    icon: "🎙️", label: "Podcasters", href: "/creators/podcasters/",
+    img: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=600&auto=format&fit=crop&q=80",
+  },
+  {
+    icon: "✈️", label: "Travel", href: "/creators/travel-influencers/",
+    img: "/images/creator-travel.png",
+  },
+  {
+    icon: "💪", label: "Fitness", href: "/creators/fitness-wellness-creators/",
+    img: "/images/creator-event.png",
+  },
+  {
+    icon: "🎮", label: "Gaming", href: "/creators/gaming-streamers/",
+    img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&auto=format&fit=crop&q=80",
+  },
+  {
+    icon: "💄", label: "Fashion", href: "/creators/fashion-beauty-creators/",
+    img: "/images/creator-beauty.png",
+  },
+]
+
 export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative text-white overflow-hidden">
+      <section className="relative text-white overflow-hidden min-h-[640px] flex flex-col justify-center">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=1600&auto=format&fit=crop&q=80"
+            src="/images/creator-studio.png"
             alt="Content creator filming"
             fill
             className="object-cover object-center"
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-indigo-950/90 via-purple-950/80 to-indigo-900/60" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-950/80 via-purple-900/65 to-indigo-900/40" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-                <span className="text-purple-200 text-sm font-medium">🇳🇿 New Zealand&apos;s Creator Insurance Specialists</span>
+                <span className="text-purple-200 text-sm font-medium">🇳🇿 Creator Insurance Specialists</span>
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
                 Insurance Built for
@@ -98,7 +133,7 @@ export default function HomePage() {
             </div>
 
             {/* Quote form card */}
-            <div className="bg-white rounded-2xl shadow-2xl p-6 lg:p-8">
+            <div className="bg-white rounded-2xl shadow-2xl border-2 border-violet-400 p-6 lg:p-8">
               <h2 className="text-xl font-bold text-gray-900 mb-2">Get a Quote Today</h2>
               <p className="text-gray-500 text-sm mb-6">Connect with a licensed broker — no obligation, no spam.</p>
               <QuoteForm variant="compact" />
@@ -108,13 +143,13 @@ export default function HomePage() {
       </section>
 
       {/* Stats */}
-      <section className="bg-white border-b border-gray-100">
+      <section className="bg-gradient-to-r from-violet-700 to-purple-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-3xl font-extrabold text-gradient-brand mb-1">{stat.value}</div>
-                <div className="text-sm text-gray-500">{stat.label}</div>
+                <div className="text-3xl font-extrabold text-white mb-1">{stat.value}</div>
+                <div className="text-sm text-purple-200">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -161,16 +196,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* How it works — with background image */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/images/creator-desk.png"
+            alt=""
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-white/92" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">How It Works</h2>
             <p className="text-lg text-gray-600">Getting covered takes minutes — here&apos;s the process.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {steps.map((step) => (
-              <div key={step.step} className="text-center">
+              <div key={step.step} className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-purple-100 shadow-sm">
                 <div className="w-14 h-14 bg-gradient-brand rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <span className="text-white font-bold text-xl">{step.step}</span>
                 </div>
@@ -182,31 +225,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Creator types */}
-      <section className="bg-gray-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Creator types — with actual images */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gray-950" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">Cover for Every Type of Creator</h2>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">Cover for Every Type of Creator</h2>
             <p className="text-lg text-gray-400">Whether you&apos;re on Instagram, YouTube, TikTok, Twitch or podcasting — we have cover specialists for your platform.</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {[
-              { icon: "📸", label: "Instagram", href: "/creators/instagram-influencers/" },
-              { icon: "▶️", label: "YouTube", href: "/creators/youtube-creators/" },
-              { icon: "🎵", label: "TikTok", href: "/creators/tiktok-creators/" },
-              { icon: "🎙️", label: "Podcasters", href: "/creators/podcasters/" },
-              { icon: "✈️", label: "Travel", href: "/creators/travel-influencers/" },
-              { icon: "💪", label: "Fitness", href: "/creators/fitness-wellness-creators/" },
-              { icon: "🎮", label: "Gaming", href: "/creators/gaming-streamers/" },
-              { icon: "💄", label: "Fashion", href: "/creators/fashion-beauty-creators/" },
-            ].map((creator) => (
+            {creatorTypes.map((creator) => (
               <Link
                 key={creator.label}
                 href={creator.href}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 text-center hover:bg-white/20 transition-colors"
+                className="relative rounded-2xl overflow-hidden group h-44 block"
               >
-                <div className="text-2xl mb-2">{creator.icon}</div>
-                <div className="text-sm font-medium text-gray-300">{creator.label}</div>
+                <img
+                  src={creator.img}
+                  alt={creator.label}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-400"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-violet-900/0 group-hover:bg-violet-900/25 transition-colors duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
+                  <div className="text-2xl mb-1 drop-shadow">{creator.icon}</div>
+                  <div className="text-sm font-semibold text-white drop-shadow">{creator.label}</div>
+                </div>
               </Link>
             ))}
           </div>
@@ -214,8 +258,16 @@ export default function HomePage() {
       </section>
 
       {/* Why choose us */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/images/creator-auto.png"
+            alt=""
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-white/94" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">
@@ -254,7 +306,7 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+            <div className="bg-white rounded-2xl p-8 border-2 border-violet-400 shadow-xl">
               <h3 className="text-xl font-bold text-gray-900 mb-6">Ready to protect your creator business?</h3>
               <QuoteForm variant="compact" />
             </div>

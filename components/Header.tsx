@@ -11,13 +11,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center">
-              <span className="text-white font-bold text-sm">II</span>
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="font-bold text-gray-900 text-sm">Influencer Insurance</span>
-              <span className="text-purple-600 text-xs font-medium">New Zealand</span>
-            </div>
+            <span className="font-extrabold text-gray-900 text-lg tracking-tight">Influencer<span className="text-purple-600">Insurance</span></span>
           </Link>
 
           {/* Desktop nav */}

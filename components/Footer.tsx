@@ -11,17 +11,17 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
-            <div className="relative inline-flex items-center pt-3 mb-4">
-              <div className="absolute left-1/2 -translate-x-1/2 -top-[11px] z-10">
-                <div className="w-[18px] h-[13px] bg-violet-500 rounded-[3px] flex items-center justify-center">
-                  <svg className="w-[9px] h-[9px] text-white translate-x-px" fill="currentColor" viewBox="0 0 24 24">
+            <div className="relative inline-flex items-center pt-4 mb-4">
+              <div className="absolute left-1/2 -translate-x-1/2 -top-[14px] z-10">
+                <div className="w-[26px] h-[19px] bg-violet-500 rounded-[4px] flex items-center justify-center">
+                  <svg className="w-[13px] h-[13px] text-white translate-x-px" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
               </div>
-              <span className="font-bold text-white text-[13px] tracking-tight leading-none">Influencer</span>
-              <span className="font-bold text-violet-400 text-[13px] tracking-tight leading-none">Insurance</span>
-              <span className="text-gray-500 text-[11px] font-medium leading-none">.co.nz</span>
+              <span className="font-bold text-white text-base tracking-tight leading-none">Influencer</span>
+              <span className="font-bold text-violet-400 text-base tracking-tight leading-none">Insurance</span>
+              <span className="text-gray-500 text-xs font-medium leading-none">.co.nz</span>
             </div>
             <p className="text-sm text-gray-400 leading-relaxed mb-4">
               Connecting NZ content creators with specialist insurance advisers for professional protection that fits the creator economy.

@@ -11,18 +11,18 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="relative flex items-center pt-3">
+            <div className="relative flex items-center pt-4">
               {/* YouTube-style play icon floating above the word join */}
-              <div className="absolute left-1/2 -translate-x-1/2 -top-[11px] z-10">
-                <div className="w-[18px] h-[13px] bg-violet-600 rounded-[3px] flex items-center justify-center shadow-sm">
-                  <svg className="w-[9px] h-[9px] text-white translate-x-px" fill="currentColor" viewBox="0 0 24 24">
+              <div className="absolute left-1/2 -translate-x-1/2 -top-[14px] z-10">
+                <div className="w-[26px] h-[19px] bg-violet-600 rounded-[4px] flex items-center justify-center shadow-sm">
+                  <svg className="w-[13px] h-[13px] text-white translate-x-px" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
               </div>
-              <span className="font-bold text-gray-800 text-[13px] tracking-tight leading-none">Influencer</span>
-              <span className="font-bold text-violet-600 text-[13px] tracking-tight leading-none">Insurance</span>
-              <span className="text-gray-400 text-[11px] font-medium leading-none">.co.nz</span>
+              <span className="font-bold text-gray-800 text-base tracking-tight leading-none">Influencer</span>
+              <span className="font-bold text-violet-600 text-base tracking-tight leading-none">Insurance</span>
+              <span className="text-gray-400 text-xs font-medium leading-none">.co.nz</span>
             </div>
           </Link>
 

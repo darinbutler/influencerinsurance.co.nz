@@ -76,6 +76,30 @@ const creatorTypes = [
     icon: "💄", label: "Fashion", href: "/creators/fashion-beauty-creators/",
     img: "/images/creator-beauty.png",
   },
+  {
+    icon: "🔐", label: "Adult Content", href: "/creators/adult-content-creators/",
+    img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&auto=format&fit=crop&q=80",
+  },
+  {
+    icon: "🏎️", label: "Automotive", href: "/creators/automotive-motorsport-creators/",
+    img: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=600&auto=format&fit=crop&q=80",
+  },
+  {
+    icon: "🍳", label: "Food & Recipe", href: "/creators/food-recipe-creators/",
+    img: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&auto=format&fit=crop&q=80",
+  },
+  {
+    icon: "💹", label: "Finfluencers", href: "/creators/financial-influencers/",
+    img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&auto=format&fit=crop&q=80",
+  },
+  {
+    icon: "🏔️", label: "Outdoor & Adventure", href: "/creators/outdoor-adventure-creators/",
+    img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&auto=format&fit=crop&q=80",
+  },
+  {
+    icon: "📲", label: "UGC Creators", href: "/creators/ugc-creators/",
+    img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&auto=format&fit=crop&q=80",
+  },
 ]
 
 export default function HomePage() {
@@ -231,28 +255,34 @@ export default function HomePage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">Cover for Every Type of Creator</h2>
-            <p className="text-lg text-gray-400">Whether you&apos;re on Instagram, YouTube, TikTok, Twitch or podcasting — we have cover specialists for your platform.</p>
+            <p className="text-lg text-gray-400">Whether you&apos;re on Instagram, YouTube, TikTok, OnlyFans, or creating automotive and adventure content — we have specialist cover for your platform.</p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
             {creatorTypes.map((creator) => (
               <Link
                 key={creator.label}
                 href={creator.href}
-                className="relative rounded-2xl overflow-hidden group h-44 block"
+                className="relative rounded-xl overflow-hidden group h-36 block"
               >
                 <img
                   src={creator.img}
                   alt={creator.label}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-400"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
                 <div className="absolute inset-0 bg-violet-900/0 group-hover:bg-violet-900/25 transition-colors duration-300" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
-                  <div className="text-2xl mb-1 drop-shadow">{creator.icon}</div>
-                  <div className="text-sm font-semibold text-white drop-shadow">{creator.label}</div>
+                <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
+                  <div className="text-xl mb-0.5 drop-shadow">{creator.icon}</div>
+                  <div className="text-xs font-semibold text-white drop-shadow leading-tight">{creator.label}</div>
                 </div>
               </Link>
             ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/creators/" className="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/20 transition-colors">
+              View all 14 creator types
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </Link>
           </div>
         </div>
       </section>

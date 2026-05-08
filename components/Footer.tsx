@@ -5,29 +5,31 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-900 text-gray-300">
-      {/* Main footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      {/* Main footer — 6 columns */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+
           {/* Brand */}
-          <div className="md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center">
-                <span className="text-white font-bold text-sm">II</span>
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-bold text-white text-sm">Influencer Insurance</span>
-                <span className="text-purple-400 text-xs font-medium">New Zealand</span>
-              </div>
-            </div>
-            <p className="text-sm text-gray-400 leading-relaxed">
+          <div className="col-span-2 md:col-span-3 lg:col-span-2">
+            <span className="font-extrabold text-white text-lg tracking-tight mb-4 block">
+              Influencer<span className="text-purple-400">Insurance</span>
+            </span>
+            <p className="text-sm text-gray-400 leading-relaxed mb-4">
               Connecting NZ content creators with specialist insurance advisers for professional protection that fits the creator economy.
             </p>
+            <Link
+              href="/quote/"
+              className="inline-block bg-violet-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-violet-500 transition-colors"
+            >
+              Get a Quote →
+            </Link>
           </div>
 
           {/* Coverage */}
           <div>
-            <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Coverage Types</h3>
+            <h3 className="font-semibold text-white mb-4 text-xs uppercase tracking-wider">Coverage</h3>
             <ul className="space-y-2 text-sm">
+              <li><Link href="/coverage/" className="hover:text-purple-400 transition-colors">All Coverage Types</Link></li>
               <li><Link href="/coverage/public-liability/" className="hover:text-purple-400 transition-colors">Public Liability</Link></li>
               <li><Link href="/coverage/equipment-gear/" className="hover:text-purple-400 transition-colors">Equipment &amp; Gear</Link></li>
               <li><Link href="/coverage/cyber-privacy/" className="hover:text-purple-400 transition-colors">Cyber &amp; Privacy</Link></li>
@@ -35,28 +37,45 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Creators */}
+          {/* Creator Types — Platform */}
           <div>
-            <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Creator Types</h3>
+            <h3 className="font-semibold text-white mb-4 text-xs uppercase tracking-wider">Platform Creators</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/creators/instagram-influencers/" className="hover:text-purple-400 transition-colors">Instagram Influencers</Link></li>
-              <li><Link href="/creators/youtube-creators/" className="hover:text-purple-400 transition-colors">YouTube Creators</Link></li>
-              <li><Link href="/creators/tiktok-creators/" className="hover:text-purple-400 transition-colors">TikTok Creators</Link></li>
+              <li><Link href="/creators/instagram-influencers/" className="hover:text-purple-400 transition-colors">Instagram</Link></li>
+              <li><Link href="/creators/youtube-creators/" className="hover:text-purple-400 transition-colors">YouTube</Link></li>
+              <li><Link href="/creators/tiktok-creators/" className="hover:text-purple-400 transition-colors">TikTok</Link></li>
               <li><Link href="/creators/podcasters/" className="hover:text-purple-400 transition-colors">Podcasters</Link></li>
-              <li><Link href="/creators/travel-influencers/" className="hover:text-purple-400 transition-colors">Travel Influencers</Link></li>
+              <li><Link href="/creators/gaming-streamers/" className="hover:text-purple-400 transition-colors">Gaming Streamers</Link></li>
+              <li><Link href="/creators/ugc-creators/" className="hover:text-purple-400 transition-colors">UGC Creators</Link></li>
+              <li><Link href="/creators/adult-content-creators/" className="hover:text-purple-400 transition-colors">Adult Content</Link></li>
             </ul>
           </div>
 
-          {/* Links */}
+          {/* Creator Types — Niche */}
           <div>
-            <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Quick Links</h3>
+            <h3 className="font-semibold text-white mb-4 text-xs uppercase tracking-wider">Niche Creators</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/quote/" className="hover:text-purple-400 transition-colors">Get a Quote</Link></li>
-              <li><Link href="/blog/" className="hover:text-purple-400 transition-colors">Resources</Link></li>
+              <li><Link href="/creators/travel-influencers/" className="hover:text-purple-400 transition-colors">Travel</Link></li>
+              <li><Link href="/creators/fitness-wellness-creators/" className="hover:text-purple-400 transition-colors">Fitness &amp; Wellness</Link></li>
+              <li><Link href="/creators/fashion-beauty-creators/" className="hover:text-purple-400 transition-colors">Fashion &amp; Beauty</Link></li>
+              <li><Link href="/creators/food-recipe-creators/" className="hover:text-purple-400 transition-colors">Food &amp; Recipe</Link></li>
+              <li><Link href="/creators/automotive-motorsport-creators/" className="hover:text-purple-400 transition-colors">Automotive &amp; Motorsport</Link></li>
+              <li><Link href="/creators/financial-influencers/" className="hover:text-purple-400 transition-colors">Finfluencers</Link></li>
+              <li><Link href="/creators/outdoor-adventure-creators/" className="hover:text-purple-400 transition-colors">Outdoor &amp; Adventure</Link></li>
+            </ul>
+          </div>
+
+          {/* Resources + Links */}
+          <div>
+            <h3 className="font-semibold text-white mb-4 text-xs uppercase tracking-wider">Resources</h3>
+            <ul className="space-y-2 text-sm mb-6">
+              <li><Link href="/blog/" className="hover:text-purple-400 transition-colors">All Articles</Link></li>
+              <li><Link href="/blog/complete-guide-influencer-insurance-nz/" className="hover:text-purple-400 transition-colors">Complete Guide</Link></li>
+              <li><Link href="/blog/nz-influencer-fair-trading-act-guide/" className="hover:text-purple-400 transition-colors">FTA Compliance</Link></li>
+              <li><Link href="/blog/onlyfans-creator-insurance-nz/" className="hover:text-purple-400 transition-colors">OnlyFans Insurance</Link></li>
+              <li><Link href="/blog/finfluencer-insurance-nz/" className="hover:text-purple-400 transition-colors">Finfluencer Guide</Link></li>
               <li><Link href="/faqs/" className="hover:text-purple-400 transition-colors">FAQs</Link></li>
               <li><Link href="/locations/" className="hover:text-purple-400 transition-colors">Locations</Link></li>
-              <li><Link href="/about/" className="hover:text-purple-400 transition-colors">About Us</Link></li>
-              <li><Link href="/contact/" className="hover:text-purple-400 transition-colors">Contact</Link></li>
             </ul>
           </div>
         </div>

@@ -6,7 +6,7 @@ export const siteConfig = {
   description: "Protect your brand, gear, and income with specialist influencer insurance in New Zealand. Public liability, equipment cover, cyber protection and professional indemnity — compare quotes from licensed NZ brokers.",
   phone: "0800 000 000",
   email: "hello@influencerinsurance.co.nz",
-  workerUrl: "https://form-handler.butlerdarin.workers.dev",
+  workerUrl: "https://shiny-bush-41cd.darinbutler.workers.dev",
   social: {
     instagram: "https://instagram.com/influencerinsurancenz",
     tiktok: "https://tiktok.com/@influencerinsurancenz",

@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { siteConfig } from "../../data/site-config"
 import type { Metadata } from "next"
 
@@ -62,11 +63,18 @@ const locations = [
 export default function LocationsPage() {
   return (
     <>
-      <section className="bg-gradient-hero text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">Influencer Insurance Across NZ</h1>
-          <p className="text-xl text-purple-200 max-w-2xl mx-auto">
-            Licensed NZ brokers ready to help content creators in every major centre — and nationwide.
+      <section className="relative text-white overflow-hidden min-h-[420px] sm:min-h-[500px] flex flex-col justify-center">
+        <div className="absolute inset-0">
+          <Image src="/images/creator-travel.png" alt="Content creator on location" fill className="object-cover object-center" priority />
+        </div>
+        <div className="absolute inset-0 bg-slate-950/78" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center w-full">
+          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
+            <span className="text-purple-200 text-sm font-medium">📍 Creator cover wherever you are</span>
+          </div>
+          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">Creator Insurance Nationwide</h1>
+          <p className="text-xl text-slate-200 max-w-2xl mx-auto">
+            Licensed local brokers ready to help content creators in every major centre — and across the country.
           </p>
         </div>
       </section>

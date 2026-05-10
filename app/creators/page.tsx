@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { creatorTypes } from "../../data/creator-types"
 import { siteConfig } from "../../data/site-config"
 import type { Metadata } from "next"
@@ -12,11 +13,18 @@ export const metadata: Metadata = {
 export default function CreatorsPage() {
   return (
     <>
-      <section className="bg-gradient-hero text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative text-white overflow-hidden min-h-[420px] sm:min-h-[500px] flex flex-col justify-center">
+        <div className="absolute inset-0">
+          <Image src="/images/creator-beauty.png" alt="Content creator" fill className="object-cover object-center" priority />
+        </div>
+        <div className="absolute inset-0 bg-slate-950/78" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center w-full">
+          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
+            <span className="text-purple-200 text-sm font-medium">🎬 Every niche. Every platform.</span>
+          </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">Insurance by Creator Type</h1>
-          <p className="text-xl text-purple-200 max-w-2xl mx-auto">
-            Different platforms, different risks. Find specialist insurance guidance for your type of creator business.
+          <p className="text-xl text-slate-200 max-w-2xl mx-auto">
+            Different platforms, different risks. Find specialist insurance guidance tailored to how you create.
           </p>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import QuoteForm from "../../components/QuoteForm"
 import { coverageTypes } from "../../data/coverage-types"
 import { siteConfig } from "../../data/site-config"
@@ -28,20 +29,19 @@ export default function CoveragePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-hero text-white py-16 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-8 left-8 w-64 h-64 bg-white rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-8 w-96 h-96 bg-purple-300 rounded-full blur-3xl" />
+      <section className="relative text-white overflow-hidden min-h-[420px] sm:min-h-[500px] flex flex-col justify-center">
+        <div className="absolute inset-0">
+          <Image src="/images/creator-event.png" alt="Content creator at brand event" fill className="object-cover object-center" priority />
         </div>
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="absolute inset-0 bg-slate-950/78" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center w-full">
           <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
-            <span className="text-purple-200 text-sm font-medium">4 specialist covers for creators</span>
+            <span className="text-purple-200 text-sm font-medium">🛡️ 4 specialist covers for creators</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">What Do You Need to Protect?</h1>
-          <p className="text-xl text-purple-200 max-w-2xl mx-auto mb-8">
-            Scroll through each cover below, see exactly what applies to you, and get a quote at the bottom — no phone calls needed.
+          <p className="text-xl text-slate-200 max-w-2xl mx-auto mb-8">
+            Explore each cover below, see exactly what applies to your creator business, and get matched with a specialist adviser.
           </p>
-          {/* Scroll indicator */}
           <div className="flex flex-col items-center gap-2 text-purple-300 animate-bounce">
             <span className="text-sm font-medium">Scroll to explore</span>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

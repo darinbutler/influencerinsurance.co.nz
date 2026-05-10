@@ -21,6 +21,24 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   }
 }
 
+// Hero image mapping — 6 images shared across 14 creator types
+const heroImages: Record<string, string> = {
+  "instagram-influencers":          "/images/creator-beauty.png",
+  "youtube-creators":               "/images/creator-studio.png",
+  "tiktok-creators":                "/images/creator-beauty.png",
+  "podcasters":                     "/images/creator-desk.png",
+  "travel-influencers":             "/images/creator-travel.png",
+  "fitness-wellness-creators":      "/images/creator-event.png",
+  "gaming-streamers":               "/images/creator-desk.png",
+  "fashion-beauty-creators":        "/images/creator-beauty.png",
+  "adult-content-creators":         "/images/creator-studio.png",
+  "automotive-motorsport-creators": "/images/creator-auto.png",
+  "food-recipe-creators":           "/images/creator-event.png",
+  "financial-influencers":          "/images/creator-desk.png",
+  "outdoor-adventure-creators":     "/images/creator-travel.png",
+  "ugc-creators":                   "/images/creator-studio.png",
+}
+
 // Map creator slugs to related blog post slugs for internal linking
 const relatedBlogMap: Record<string, string[]> = {
   "instagram-influencers":        ["nz-influencer-fair-trading-act-guide", "professional-indemnity-influencers-nz", "nz-influencer-brand-deal-contracts"],
@@ -46,19 +64,37 @@ export default function CreatorSlugPage({ params }: { params: { slug: string } }
   const others = creatorTypes.filter((c) => c.slug !== creator.slug).slice(0, 4)
   const relatedSlugs = relatedBlogMap[creator.slug] || []
   const relatedPosts = blogPosts.filter((p) => relatedSlugs.includes(p.slug))
+  const heroImg = heroImages[creator.slug] || "/images/creator-studio.png"
 
   return (
     <>
-      <section className="bg-gradient-hero text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 mb-4">
-            <Link href="/creators/" className="text-purple-300 hover:text-white text-sm transition-colors">Creators</Link>
-            <span className="text-purple-400">/</span>
-            <span className="text-purple-200 text-sm">{creator.name}</span>
+      <section className="relative text-white overflow-hidden min-h-[420px] sm:min-h-[500px] flex flex-col justify-end">
+        <div className="absolute inset-0">
+          <img src={heroImg} alt={creator.name} className="w-full h-full object-cover object-center" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/60 to-slate-800/20" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 pt-24 w-full">
+          <div className="flex items-center gap-2 mb-5">
+            <Link href="/creators/" className="text-white/60 hover:text-white text-sm transition-colors">Creators</Link>
+            <span className="text-white/40">/</span>
+            <span className="text-white/80 text-sm">{creator.name}</span>
           </div>
-          <div className="text-5xl mb-4">{creator.icon}</div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">{creator.name} Insurance NZ</h1>
-          <p className="text-xl text-purple-200 max-w-2xl">{creator.description.slice(0, 150)}...</p>
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center text-3xl">
+              {creator.icon}
+            </div>
+          </div>
+          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">{creator.name} Insurance</h1>
+          <p className="text-xl text-white/80 max-w-2xl leading-relaxed mb-6">{creator.description.slice(0, 150)}...</p>
+          <a
+            href="#get-quote"
+            className="inline-flex items-center gap-2 bg-white text-purple-700 px-7 py-3.5 rounded-xl font-bold hover:bg-purple-50 transition-colors shadow-xl text-sm"
+          >
+            Get a Quote
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
         </div>
       </section>
 
@@ -70,7 +106,7 @@ export default function CreatorSlugPage({ params }: { params: { slug: string } }
 
               {/* Key facts */}
               <div className="bg-purple-50 rounded-2xl p-6 border border-purple-100">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">Key Facts for {creator.name}s in NZ</h2>
+                <h2 className="text-xl font-bold text-gray-900 mb-4">Key Facts for {creator.name}s</h2>
                 <ul className="space-y-3">
                   {creator.keyFacts.map((fact) => (
                     <li key={fact} className="flex items-start gap-3">

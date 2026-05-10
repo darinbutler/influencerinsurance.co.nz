@@ -80,7 +80,7 @@ export default function Header() {
           <nav className="hidden md:flex items-center gap-1">
 
             {/* Coverage dropdown */}
-            <div className="relative">
+            <div className="relative" onMouseEnter={() => setOpenDropdown('coverage')} onMouseLeave={() => setOpenDropdown(null)}>
               <button
                 onClick={() => toggle('coverage')}
                 className="flex items-center gap-1 text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors px-3 py-2 rounded-lg hover:bg-purple-50"
@@ -110,7 +110,7 @@ export default function Header() {
             </div>
 
             {/* Platforms dropdown */}
-            <div className="relative">
+            <div className="relative" onMouseEnter={() => setOpenDropdown('platforms')} onMouseLeave={() => setOpenDropdown(null)}>
               <button
                 onClick={() => toggle('platforms')}
                 className="flex items-center gap-1 text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors px-3 py-2 rounded-lg hover:bg-purple-50"
@@ -140,7 +140,7 @@ export default function Header() {
             </div>
 
             {/* Niche dropdown */}
-            <div className="relative">
+            <div className="relative" onMouseEnter={() => setOpenDropdown('niche')} onMouseLeave={() => setOpenDropdown(null)}>
               <button
                 onClick={() => toggle('niche')}
                 className="flex items-center gap-1 text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors px-3 py-2 rounded-lg hover:bg-purple-50"

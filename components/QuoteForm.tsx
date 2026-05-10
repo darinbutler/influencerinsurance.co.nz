@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import Script from "next/script"
 import { siteConfig } from "../data/site-config"
 
 interface QuoteFormProps {
@@ -24,8 +25,17 @@ export default function QuoteForm({ variant = "full" }: QuoteFormProps) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    const formEl = e.currentTarget
+    const fd = new FormData(formEl)
+    const cfToken = fd.get('cf-turnstile-response')
+    if (!cfToken) {
+      setStatus("error")
+      return
+    }
+
     setStatus("sending")
 
     try {
@@ -38,6 +48,7 @@ export default function QuoteForm({ variant = "full" }: QuoteFormProps) {
         phone: formData.phone,
         message: formData.message,
         _subject: "Influencer Insurance Enquiry — InfluencerInsurance.co.nz",
+        cfTurnstileToken: cfToken,
       }
       void siteConfig;
 
@@ -166,8 +177,13 @@ export default function QuoteForm({ variant = "full" }: QuoteFormProps) {
       )}
 
       {status === "error" && (
-        <p className="text-red-600 text-sm">Something went wrong. Please try again or email us directly.</p>
+        <p className="text-red-600 text-sm">Something went wrong. Please complete the security check and try again.</p>
       )}
+
+      <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer strategy="afterInteractive" />
+      <div className="flex justify-center">
+        <div className="cf-turnstile" data-sitekey="0x4AAAAAADMnq1OKyxf3JvVv" data-theme="light" />
+      </div>
 
       <button
         type="submit"

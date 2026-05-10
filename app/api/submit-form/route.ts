@@ -17,6 +17,7 @@ const CORE_FIELDS = new Set([
 ]);
 const META_FIELDS = new Set([
   '_subject', '_honey', '_honeypot', '_next',
+  'cfTurnstileToken', 'cf-turnstile-response',
 ]);
 const RESERVED_FIELDS = new Set([...CORE_FIELDS, ...META_FIELDS]);
 
@@ -90,6 +91,7 @@ export async function POST(request: NextRequest) {
     phone:   (raw['phone'] || raw['tel'] || '').trim(),
     subject: (raw['_subject'] || 'New Insurance Lead').trim(),
     extra:   parseExtraFields(raw),
+    cfTurnstileToken: (raw['cfTurnstileToken'] || raw['cf-turnstile-response'] || '').trim(),
   };
 
   const body      = JSON.stringify(payload);

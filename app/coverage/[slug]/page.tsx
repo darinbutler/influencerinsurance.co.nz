@@ -137,34 +137,47 @@ export default function CoverageSlugPage({ params }: { params: { slug: string } 
               </div>
 
               {/* Who needs it */}
-              <div className="bg-gray-50 rounded-2xl p-8">
-                <h2 className="text-xl font-bold text-gray-900 mb-5 flex items-center gap-2">
-                  <span className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center text-base">👤</span>
-                  Who Needs {cover.name}?
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {cover.whoNeeds.map((item) => (
-                    <div key={item} className="flex items-start gap-3 bg-white rounded-xl p-3 border border-gray-100">
-                      <span className="text-purple-500 font-bold mt-0.5">✓</span>
-                      <span className="text-gray-700 text-sm">{item}</span>
+              <div>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-9 h-9 bg-violet-100 rounded-xl flex items-center justify-center text-violet-600 font-bold text-lg">👤</div>
+                  <h2 className="text-xl font-bold text-gray-900">Who Needs {cover.name}?</h2>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {cover.whoNeeds.map((item, i) => (
+                    <div key={item} className="group relative flex items-start gap-4 bg-white rounded-2xl p-4 border border-gray-100 shadow-sm hover:border-violet-300 hover:shadow-md transition-all cursor-default">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center shadow-sm">
+                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span className="text-gray-700 text-sm font-medium leading-snug pt-1">{item}</span>
+                      <span className="absolute top-3 right-3 text-xs font-bold text-gray-200 group-hover:text-violet-200 transition-colors">{String(i + 1).padStart(2, "0")}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* What it covers */}
-              <div className="bg-purple-50 rounded-2xl p-8 border border-purple-100">
-                <h2 className="text-xl font-bold text-gray-900 mb-5 flex items-center gap-2">
-                  <span className="w-8 h-8 bg-purple-200 rounded-lg flex items-center justify-center text-base">🛡️</span>
-                  What&apos;s Covered
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-9 h-9 bg-violet-600 rounded-xl flex items-center justify-center text-white font-bold text-lg">🛡️</div>
+                  <h2 className="text-xl font-bold text-gray-900">What&apos;s Covered</h2>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {cover.whatCovers.map((item) => (
-                    <div key={item} className="flex items-start gap-3 bg-white rounded-xl p-3 border border-purple-100">
-                      <span className="text-purple-500 font-bold mt-0.5">🛡️</span>
-                      <span className="text-gray-700 text-sm">{item}</span>
+                    <div key={item} className="group flex items-start gap-4 bg-gradient-to-br from-violet-50 to-indigo-50 rounded-2xl p-4 border border-violet-100 hover:border-violet-300 hover:shadow-md hover:from-violet-100 hover:to-indigo-100 transition-all cursor-default">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white border-2 border-violet-300 group-hover:border-violet-500 flex items-center justify-center shadow-sm transition-colors">
+                        <svg className="w-4 h-4 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span className="text-gray-700 text-sm font-medium leading-snug pt-1">{item}</span>
                     </div>
                   ))}
+                </div>
+                <div className="mt-4 flex items-center gap-2 text-sm text-gray-500 bg-amber-50 border border-amber-100 rounded-xl px-4 py-3">
+                  <span className="text-amber-500">⚠️</span>
+                  <span>Exact coverage depends on the policy arranged by your adviser. Your adviser will confirm inclusions and exclusions before any policy is bound.</span>
                 </div>
               </div>
 

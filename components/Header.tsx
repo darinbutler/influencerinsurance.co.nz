@@ -33,6 +33,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const headerRef = useRef<HTMLElement>(null)
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,6 +55,15 @@ export default function Header() {
   }, [])
 
   const toggle = (name: string) => setOpenDropdown(openDropdown === name ? null : name)
+
+  const openMenu = (name: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current)
+    setOpenDropdown(name)
+  }
+
+  const scheduleClose = () => {
+    closeTimer.current = setTimeout(() => setOpenDropdown(null), 150)
+  }
 
   return (
     <header ref={headerRef} className="bg-white/95 backdrop-blur-sm border-b border-purple-100 sticky top-0 z-50 shadow-sm">
@@ -80,7 +90,7 @@ export default function Header() {
           <nav className="hidden md:flex items-center gap-1">
 
             {/* Coverage dropdown */}
-            <div className="relative" onMouseEnter={() => setOpenDropdown('coverage')} onMouseLeave={() => setOpenDropdown(null)}>
+            <div className="relative" onMouseEnter={() => openMenu('coverage')} onMouseLeave={scheduleClose}>
               <button
                 onClick={() => toggle('coverage')}
                 className="flex items-center gap-1 text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors px-3 py-2 rounded-lg hover:bg-purple-50"
@@ -110,7 +120,7 @@ export default function Header() {
             </div>
 
             {/* Platforms dropdown */}
-            <div className="relative" onMouseEnter={() => setOpenDropdown('platforms')} onMouseLeave={() => setOpenDropdown(null)}>
+            <div className="relative" onMouseEnter={() => openMenu('platforms')} onMouseLeave={scheduleClose}>
               <button
                 onClick={() => toggle('platforms')}
                 className="flex items-center gap-1 text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors px-3 py-2 rounded-lg hover:bg-purple-50"
@@ -140,7 +150,7 @@ export default function Header() {
             </div>
 
             {/* Niche dropdown */}
-            <div className="relative" onMouseEnter={() => setOpenDropdown('niche')} onMouseLeave={() => setOpenDropdown(null)}>
+            <div className="relative" onMouseEnter={() => openMenu('niche')} onMouseLeave={scheduleClose}>
               <button
                 onClick={() => toggle('niche')}
                 className="flex items-center gap-1 text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors px-3 py-2 rounded-lg hover:bg-purple-50"

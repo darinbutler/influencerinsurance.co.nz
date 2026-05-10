@@ -28,6 +28,8 @@ export default function BlogPage() {
           <p className="text-xl text-slate-200 max-w-2xl mx-auto">
             Practical guides for content creators — from public liability to Fair Trading Act compliance and gear protection.
           </p>
+        </div>
+      </section>
 
       <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

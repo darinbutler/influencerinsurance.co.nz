@@ -5,12 +5,12 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-900 text-gray-300">
-      {/* Main footer — 6 columns */}
+      {/* Main footer — 7 columns on lg */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8">
 
           {/* Brand */}
-          <div className="col-span-2 md:col-span-3 lg:col-span-2">
+          <div className="col-span-2 md:col-span-4 lg:col-span-2">
             <div className="relative inline-flex items-center pt-4 mb-4">
               <div className="absolute left-1/2 -translate-x-1/2 -top-[14px] z-10">
                 <div className="w-[26px] h-[19px] bg-violet-500 rounded-[4px] flex items-center justify-center">
@@ -68,25 +68,44 @@ export default function Footer() {
               <li><Link href="/creators/fitness-wellness-creators/" className="hover:text-purple-400 transition-colors">Fitness &amp; Wellness</Link></li>
               <li><Link href="/creators/fashion-beauty-creators/" className="hover:text-purple-400 transition-colors">Fashion &amp; Beauty</Link></li>
               <li><Link href="/creators/food-recipe-creators/" className="hover:text-purple-400 transition-colors">Food &amp; Recipe</Link></li>
-              <li><Link href="/creators/automotive-motorsport-creators/" className="hover:text-purple-400 transition-colors">Automotive &amp; Motorsport</Link></li>
+              <li><Link href="/creators/automotive-motorsport-creators/" className="hover:text-purple-400 transition-colors">Automotive</Link></li>
               <li><Link href="/creators/financial-influencers/" className="hover:text-purple-400 transition-colors">Finfluencers</Link></li>
               <li><Link href="/creators/outdoor-adventure-creators/" className="hover:text-purple-400 transition-colors">Outdoor &amp; Adventure</Link></li>
             </ul>
           </div>
 
-          {/* Resources + Links */}
+          {/* Guides / Blog */}
           <div>
-            <h3 className="font-semibold text-white mb-4 text-xs uppercase tracking-wider">Resources</h3>
-            <ul className="space-y-2 text-sm mb-6">
+            <h3 className="font-semibold text-white mb-4 text-xs uppercase tracking-wider">Guides</h3>
+            <ul className="space-y-2 text-sm">
               <li><Link href="/blog/" className="hover:text-purple-400 transition-colors">All Articles</Link></li>
               <li><Link href="/blog/complete-guide-influencer-insurance-nz/" className="hover:text-purple-400 transition-colors">Complete Guide</Link></li>
               <li><Link href="/blog/nz-influencer-fair-trading-act-guide/" className="hover:text-purple-400 transition-colors">FTA Compliance</Link></li>
-              <li><Link href="/blog/onlyfans-creator-insurance-nz/" className="hover:text-purple-400 transition-colors">OnlyFans Insurance</Link></li>
+              <li><Link href="/blog/influencer-cyber-insurance-nz/" className="hover:text-purple-400 transition-colors">Cyber Risk Guide</Link></li>
+              <li><Link href="/blog/drone-insurance-content-creators-nz/" className="hover:text-purple-400 transition-colors">Drone Insurance</Link></li>
               <li><Link href="/blog/finfluencer-insurance-nz/" className="hover:text-purple-400 transition-colors">Finfluencer Guide</Link></li>
+              <li><Link href="/blog/onlyfans-creator-insurance-nz/" className="hover:text-purple-400 transition-colors">OnlyFans Insurance</Link></li>
+              <li><Link href="/blog/micro-influencer-insurance-nz/" className="hover:text-purple-400 transition-colors">Micro-Influencers</Link></li>
               <li><Link href="/faqs/" className="hover:text-purple-400 transition-colors">FAQs</Link></li>
-              <li><Link href="/locations/" className="hover:text-purple-400 transition-colors">Locations</Link></li>
             </ul>
           </div>
+
+          {/* Locations */}
+          <div>
+            <h3 className="font-semibold text-white mb-4 text-xs uppercase tracking-wider">Locations</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/locations/" className="hover:text-purple-400 transition-colors">All Locations</Link></li>
+              <li><Link href="/locations/#auckland" className="hover:text-purple-400 transition-colors">Auckland</Link></li>
+              <li><Link href="/locations/#wellington" className="hover:text-purple-400 transition-colors">Wellington</Link></li>
+              <li><Link href="/locations/#christchurch" className="hover:text-purple-400 transition-colors">Christchurch</Link></li>
+              <li><Link href="/locations/#queenstown" className="hover:text-purple-400 transition-colors">Queenstown</Link></li>
+              <li><Link href="/locations/#hamilton" className="hover:text-purple-400 transition-colors">Hamilton</Link></li>
+              <li><Link href="/locations/#tauranga" className="hover:text-purple-400 transition-colors">Tauranga</Link></li>
+              <li><Link href="/locations/#dunedin" className="hover:text-purple-400 transition-colors">Dunedin</Link></li>
+              <li><Link href="/locations/#nelson" className="hover:text-purple-400 transition-colors">Nelson</Link></li>
+            </ul>
+          </div>
+
         </div>
       </div>
 
@@ -98,12 +117,14 @@ export default function Footer() {
           </p>
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <p className="text-xs text-gray-500">
-              &copy; {currentYear} Influencer Insurance NZ. All rights reserved.
+              &copy; {currentYear} Influencer Insurance. All rights reserved.
             </p>
             <div className="flex gap-4 text-xs">
               <Link href="/privacy/" className="text-gray-500 hover:text-purple-400 transition-colors">Privacy Policy</Link>
               <Link href="/terms/" className="text-gray-500 hover:text-purple-400 transition-colors">Terms of Use</Link>
               <Link href="/disclaimer/" className="text-gray-500 hover:text-purple-400 transition-colors">Disclaimer</Link>
+              <Link href="/about/" className="text-gray-500 hover:text-purple-400 transition-colors">About</Link>
+              <Link href="/contact/" className="text-gray-500 hover:text-purple-400 transition-colors">Contact</Link>
             </div>
           </div>
         </div>

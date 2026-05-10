@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import QuoteForm from "../../components/QuoteForm"
 import { siteConfig } from "../../data/site-config"
 import type { Metadata } from "next"
@@ -35,10 +36,10 @@ const trustCards = [
 ]
 
 const covers = [
-  { icon: "🛡️", label: "Public Liability", desc: "Events, activations & film locations" },
-  { icon: "📷", label: "Equipment & Gear", desc: "Cameras, drones, lighting & creator kit" },
-  { icon: "🔐", label: "Cyber & Privacy", desc: "Account hacks, data breaches & cyber extortion" },
-  { icon: "📄", label: "Professional Indemnity", desc: "Brand deal disputes & content claims" },
+  { icon: "🛡️", label: "Public Liability", desc: "Events, activations & film locations", href: "/coverage/public-liability/", color: "from-violet-500 to-purple-600", light: "bg-violet-50 border-violet-200 hover:border-violet-400" },
+  { icon: "📷", label: "Equipment & Gear", desc: "Cameras, drones, lighting & creator kit", href: "/coverage/equipment-gear/", color: "from-indigo-500 to-blue-600", light: "bg-indigo-50 border-indigo-200 hover:border-indigo-400" },
+  { icon: "🔐", label: "Cyber & Privacy", desc: "Account hacks, data breaches & cyber extortion", href: "/coverage/cyber-privacy/", color: "from-purple-500 to-fuchsia-600", light: "bg-purple-50 border-purple-200 hover:border-purple-400" },
+  { icon: "📄", label: "Professional Indemnity", desc: "Brand deal disputes & content claims", href: "/coverage/professional-indemnity/", color: "from-slate-600 to-indigo-700", light: "bg-slate-50 border-slate-200 hover:border-slate-400" },
 ]
 
 export default function QuotePage() {
@@ -96,13 +97,18 @@ export default function QuotePage() {
                 <h2 className="text-xl font-extrabold text-gray-900 mb-4">Covers we arrange</h2>
                 <div className="space-y-3">
                   {covers.map((c) => (
-                    <div key={c.label} className="flex items-start gap-3 bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
-                      <span className="text-2xl flex-shrink-0">{c.icon}</span>
-                      <div>
-                        <div className="font-semibold text-gray-900 text-sm">{c.label}</div>
+                    <Link key={c.label} href={c.href} className={`group flex items-center gap-4 rounded-2xl p-4 border transition-all shadow-sm ${c.light}`}>
+                      <div className={`flex-shrink-0 w-11 h-11 rounded-xl bg-gradient-to-br ${c.color} flex items-center justify-center text-xl shadow-md`}>
+                        {c.icon}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="font-bold text-gray-900 text-sm group-hover:text-violet-700 transition-colors">{c.label}</div>
                         <div className="text-gray-500 text-xs mt-0.5">{c.desc}</div>
                       </div>
-                    </div>
+                      <svg className="w-4 h-4 text-gray-300 group-hover:text-violet-500 group-hover:translate-x-0.5 transition-all flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -111,11 +117,18 @@ export default function QuotePage() {
               <div>
                 <h2 className="text-xl font-extrabold text-gray-900 mb-4">Why creators trust us</h2>
                 <div className="grid grid-cols-2 gap-3">
-                  {trustCards.map((card) => (
-                    <div key={card.title} className="bg-white rounded-xl p-4 border border-gray-100 shadow-sm text-center">
-                      <div className="text-2xl mb-2">{card.icon}</div>
-                      <div className="font-semibold text-gray-900 text-xs mb-1">{card.title}</div>
-                      <div className="text-gray-500 text-xs">{card.desc}</div>
+                  {[
+                    { icon: "🏅", title: "Licensed advisers only", desc: "Every adviser holds a current FAP licence", grad: "from-amber-50 to-yellow-50", border: "border-amber-200", iconBg: "bg-amber-100" },
+                    { icon: "🔒", title: "Confidential", desc: "Your details are never shared without consent", grad: "from-green-50 to-emerald-50", border: "border-green-200", iconBg: "bg-green-100" },
+                    { icon: "💬", title: "Real people", desc: "Personalised advice — no bots or automated quotes", grad: "from-blue-50 to-indigo-50", border: "border-blue-200", iconBg: "bg-blue-100" },
+                    { icon: "📋", title: "Full disclosure", desc: "Adviser disclosure statement provided upfront", grad: "from-violet-50 to-purple-50", border: "border-violet-200", iconBg: "bg-violet-100" },
+                  ].map((card) => (
+                    <div key={card.title} className={`bg-gradient-to-br ${card.grad} rounded-2xl p-4 border ${card.border} flex flex-col items-center text-center`}>
+                      <div className={`w-10 h-10 ${card.iconBg} rounded-xl flex items-center justify-center text-xl mb-3 shadow-sm`}>
+                        {card.icon}
+                      </div>
+                      <div className="font-bold text-gray-900 text-xs mb-1 leading-snug">{card.title}</div>
+                      <div className="text-gray-500 text-xs leading-snug">{card.desc}</div>
                     </div>
                   ))}
                 </div>

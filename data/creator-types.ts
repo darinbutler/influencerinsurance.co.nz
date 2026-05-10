@@ -58,7 +58,7 @@ export const creatorTypes = [
     description: "Travel influencers carry expensive gear across New Zealand and internationally, film at public locations, and work with tourism brands on destination campaigns. Equipment cover with worldwide scope, public liability and travel-related professional indemnity are essential.",
     keyFacts: [
       "Gear theft at airports and hotels is a top risk for travel creators",
-      "Tourism NZ brand partnerships often require liability cover",
+      "Tourism brand partnerships often require liability cover",
       "Filming in national parks and public spaces has specific liability risks",
       "International filming trips require worldwide equipment cover",
     ],

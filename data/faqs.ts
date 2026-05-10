@@ -1,13 +1,13 @@
 export const faqs = [
   {
     category: "General",
-    q: "Do NZ influencers actually need insurance?",
-    a: "Yes — and the need is growing fast. NZ influencers face real financial risks from equipment theft or damage, hacked social accounts, injury claims at events, sponsor disputes, and Commerce Commission action under the Fair Trading Act. Insurance gives you financial protection and often satisfies the insurance requirements in brand partnership contracts. If you earn income from your content, treating it like a business — including getting the right cover — makes sense.",
+    q: "Do influencers actually need insurance?",
+    a: "Yes — and the need is growing fast. influencers face real financial risks from equipment theft or damage, hacked social accounts, injury claims at events, sponsor disputes, and Commerce Commission action under the Fair Trading Act. Insurance gives you financial protection and often satisfies the insurance requirements in brand partnership contracts. If you earn income from your content, treating it like a business — including getting the right cover — makes sense.",
   },
   {
     category: "General",
-    q: "What types of insurance do NZ influencers need?",
-    a: "Most NZ content creators benefit from four types of cover: public liability (for events and filming locations), equipment and gear insurance (for cameras, drones, laptops), cyber insurance (for hacked accounts and data breaches), and professional indemnity (for brand deal disputes and content claims). The right combination depends on the scale and type of your creator business.",
+    q: "What types of insurance do influencers need?",
+    a: "Most content creators benefit from four types of cover: public liability (for events and filming locations), equipment and gear insurance (for cameras, drones, laptops), cyber insurance (for hacked accounts and data breaches), and professional indemnity (for brand deal disputes and content claims). The right combination depends on the scale and type of your creator business.",
   },
   {
     category: "General",
@@ -17,7 +17,7 @@ export const faqs = [
   {
     category: "General",
     q: "How do I know which cover I actually need?",
-    a: "Start with the risks most relevant to your creator activity. If you attend events or film at third-party locations, public liability is the priority. If you own expensive gear, equipment cover is essential. If your income depends on your social accounts being online, cyber cover matters. Our licensed NZ brokers can assess your situation and recommend the right combination — use our free quote form to get started.",
+    a: "Start with the risks most relevant to your creator activity. If you attend events or film at third-party locations, public liability is the priority. If you own expensive gear, equipment cover is essential. If your income depends on your social accounts being online, cyber cover matters. Our licensed brokers can assess your situation and recommend the right combination — use our free quote form to get started.",
   },
   {
     category: "Cost",
@@ -47,7 +47,7 @@ export const faqs = [
   {
     category: "Coverage",
     q: "Am I covered for content posted on behalf of a brand partner?",
-    a: "Professional indemnity insurance can cover claims arising from sponsored content, brand campaigns and ambassador arrangements — including allegations that your content was misleading or caused the brand financial loss. This is increasingly important as NZ brands include indemnity requirements in their influencer contracts. Confirm the specific scope with your broker.",
+    a: "Professional indemnity insurance can cover claims arising from sponsored content, brand campaigns and ambassador arrangements — including allegations that your content was misleading or caused the brand financial loss. This is increasingly important as brands include indemnity requirements in their influencer contracts. Confirm the specific scope with your broker.",
   },
   {
     category: "Claims",
@@ -57,11 +57,11 @@ export const faqs = [
   {
     category: "Regulation",
     q: "Do I have to disclose sponsored content under NZ law?",
-    a: "Yes. Under the Fair Trading Act 1986, NZ influencers must clearly disclose when content is paid, gifted or sponsored. The Commerce Commission actively monitors compliance, and fines can reach $200,000 per offence for misleading commercial communications. Best practice is to use #ad, #sponsored or equivalent disclosures prominently in your posts. Professional indemnity insurance provides a financial safety net if a disclosure-related dispute arises.",
+    a: "Yes. Under the Fair Trading Act 1986, influencers must clearly disclose when content is paid, gifted or sponsored. The Commerce Commission actively monitors compliance, and fines can reach $200,000 per offence for misleading commercial communications. Best practice is to use #ad, #sponsored or equivalent disclosures prominently in your posts. Professional indemnity insurance provides a financial safety net if a disclosure-related dispute arises.",
   },
   {
     category: "Regulation",
     q: "Is influencerinsurance.co.nz regulated by the FMA?",
-    a: "Influencerinsurance.co.nz is a referral service that connects you with licensed NZ insurance advisers and brokers. We are not an insurer or regulated financial adviser. The brokers and advisers we refer you to hold the appropriate Financial Advice Provider (FAP) licences under the Financial Markets Conduct Act 2013. You will receive a full disclosure statement from your adviser before any policy is arranged.",
+    a: "Influencerinsurance.co.nz is a referral service that connects you with licensed insurance advisers and brokers. We are not an insurer or regulated financial adviser. The brokers and advisers we refer you to hold the appropriate Financial Advice Provider (FAP) licences under the Financial Markets Conduct Act 2013. You will receive a full disclosure statement from your adviser before any policy is arranged.",
   },
 ]

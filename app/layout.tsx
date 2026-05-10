@@ -7,8 +7,8 @@ import { siteConfig } from "../data/site-config"
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Influencer Insurance NZ | Cover for Content Creators",
-    template: "%s | Influencer Insurance NZ",
+    default: "Influencer Insurance | Cover for Content Creators",
+    template: "%s | Influencer Insurance",
   },
   description: siteConfig.description,
   keywords: ["influencer insurance NZ", "content creator insurance New Zealand", "public liability influencer", "equipment insurance creator", "cyber insurance influencer NZ"],
@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     locale: "en_NZ",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "Influencer Insurance NZ | Cover for Content Creators",
+    title: "Influencer Insurance | Cover for Content Creators",
     description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Influencer Insurance NZ | Cover for Content Creators",
+    title: "Influencer Insurance | Cover for Content Creators",
     description: siteConfig.description,
   },
   robots: {

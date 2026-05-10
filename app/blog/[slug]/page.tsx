@@ -90,7 +90,7 @@ export default function BlogSlugPage({ params }: { params: { slug: string } }) {
               {/* CTA block */}
               <div className="mt-10 bg-gradient-to-r from-purple-50 to-indigo-50 border border-purple-100 rounded-2xl p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Ready to protect your creator business?</h3>
-                <p className="text-gray-600 text-sm mb-4">Connect with a licensed NZ insurance adviser for a personalised quote.</p>
+                <p className="text-gray-600 text-sm mb-4">Connect with a licensed insurance adviser for a personalised quote.</p>
                 <Link href="/quote/" className="inline-block bg-gradient-brand text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-opacity text-sm">
                   Get My Free Quote
                 </Link>
@@ -121,7 +121,7 @@ export default function BlogSlugPage({ params }: { params: { slug: string } }) {
               <div className="sticky top-24 space-y-4">
                 <div className="bg-white border border-gray-200 rounded-2xl shadow-lg p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-2">Get a Quote</h3>
-                  <p className="text-gray-500 text-sm mb-5">Speak with a licensed NZ broker who specialises in creator cover.</p>
+                  <p className="text-gray-500 text-sm mb-5">Speak with a licensed broker who specialises in creator cover.</p>
                   <QuoteForm variant="compact" />
                 </div>
               </div>

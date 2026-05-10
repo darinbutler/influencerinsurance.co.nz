@@ -15,7 +15,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const creator = creatorTypes.find((c) => c.slug === params.slug)
   if (!creator) return {}
   return {
-    title: `${creator.name} Insurance NZ | Influencer Insurance NZ`,
+    title: `${creator.name} Insurance | Influencer Insurance`,
     description: creator.description.slice(0, 160),
     alternates: { canonical: `${siteConfig.url}/creators/${creator.slug}/` },
   }
@@ -149,7 +149,7 @@ export default function CreatorSlugPage({ params }: { params: { slug: string } }
               <div className="sticky top-24">
                 <div className="bg-white border-2 border-violet-400 rounded-2xl shadow-lg p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{creator.name} Insurance Quote</h3>
-                  <p className="text-gray-500 text-sm mb-5">Connect with a licensed NZ broker who specialises in creator cover.</p>
+                  <p className="text-gray-500 text-sm mb-5">Connect with a licensed broker who specialises in creator cover.</p>
                   <QuoteForm variant="compact" />
                 </div>
               </div>

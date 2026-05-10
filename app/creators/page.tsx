@@ -5,8 +5,8 @@ import { siteConfig } from "../../data/site-config"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Creator Types | Insurance for Every NZ Influencer Platform",
-  description: "Specialist insurance guidance for every type of NZ content creator — Instagram, YouTube, TikTok, podcasters, travel, fitness, gaming and fashion creators.",
+  title: "Creator Types | Insurance for Every Influencer Platform",
+  description: "Specialist insurance guidance for every type of content creator — Instagram, YouTube, TikTok, podcasters, travel, fitness, gaming and fashion creators.",
   alternates: { canonical: siteConfig.url + "/creators/" },
 }
 

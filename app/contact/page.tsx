@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Contact | Influencer Insurance NZ",
-  description: "Get in touch with Influencer Insurance NZ. Connect with a licensed NZ broker for specialist influencer and content creator insurance advice.",
+  description: "Get in touch with Influencer Insurance NZ. Connect with a licensed broker for specialist influencer and content creator insurance advice.",
   alternates: { canonical: siteConfig.url + "/contact/" },
 }
 
@@ -30,7 +30,7 @@ export default function ContactPage() {
                   {
                     icon: "🛡️",
                     title: "Insurance quotes and advice",
-                    desc: "Tell us about your creator business and we will match you with a licensed NZ broker who can provide personalised quotes.",
+                    desc: "Tell us about your creator business and we will match you with a licensed broker who can provide personalised quotes.",
                   },
                   {
                     icon: "❓",
@@ -61,7 +61,7 @@ export default function ContactPage() {
             <div>
               <div className="bg-white rounded-2xl shadow-lg p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Send an Enquiry</h3>
-                <p className="text-gray-500 text-sm mb-5">Your enquiry goes directly to a licensed NZ adviser. Response within 1 business day.</p>
+                <p className="text-gray-500 text-sm mb-5">Your enquiry goes directly to a licensed adviser. Response within 1 business day.</p>
                 <QuoteForm variant="full" />
               </div>
             </div>

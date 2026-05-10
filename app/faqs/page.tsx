@@ -50,7 +50,7 @@ export default function FAQsPage() {
 
           <div className="mt-10 bg-purple-50 rounded-2xl p-6 text-center">
             <h3 className="text-lg font-bold text-gray-900 mb-2">Still have questions?</h3>
-            <p className="text-gray-600 mb-4">Our licensed NZ brokers are happy to answer any specific questions about your situation.</p>
+            <p className="text-gray-600 mb-4">Our licensed brokers are happy to answer any specific questions about your situation.</p>
             <Link href="/quote/" className="inline-block bg-gradient-brand text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-opacity">
               Speak to an Adviser
             </Link>

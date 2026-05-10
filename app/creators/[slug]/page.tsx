@@ -106,7 +106,7 @@ export default function CreatorSlugPage({ params }: { params: { slug: string } }
 
               {/* Key facts */}
               <div className="bg-purple-50 rounded-2xl p-6 border border-purple-100">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">Key Facts for {creator.name}s</h2>
+                <h2 className="text-xl font-bold text-gray-900 mb-4">Key Facts for {creator.name}</h2>
                 <ul className="space-y-3">
                   {creator.keyFacts.map((fact) => (
                     <li key={fact} className="flex items-start gap-3">

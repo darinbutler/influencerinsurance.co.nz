@@ -37,10 +37,11 @@ export default function QuoteForm({ variant = "full" }: QuoteFormProps) {
         email: formData.email,
         phone: formData.phone,
         message: formData.message,
-        subject: "Influencer Insurance Enquiry — InfluencerInsurance.co.nz",
+        _subject: "Influencer Insurance Enquiry — InfluencerInsurance.co.nz",
       }
+      void siteConfig;
 
-      const response = await fetch(siteConfig.workerUrl, {
+      const response = await fetch("/api/submit-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -61,6 +62,7 @@ export default function QuoteForm({ variant = "full" }: QuoteFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      <input type="text" name="_honey" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
       {variant === "full" && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>

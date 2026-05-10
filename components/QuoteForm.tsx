@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { siteConfig } from "../data/site-config"
 
 interface QuoteFormProps {
@@ -16,7 +17,8 @@ export default function QuoteForm({ variant = "full" }: QuoteFormProps) {
     phone: "",
     message: "",
   })
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
+  const [status, setStatus] = useState<"idle" | "sending" | "error">("idle")
+  const router = useRouter()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -45,8 +47,7 @@ export default function QuoteForm({ variant = "full" }: QuoteFormProps) {
       })
 
       if (response.ok) {
-        setStatus("success")
-        setFormData({ creatorType: "", coverNeeded: "", followersRange: "", name: "", email: "", phone: "", message: "" })
+        router.push("/thank-you/")
       } else {
         setStatus("error")
       }
@@ -57,22 +58,6 @@ export default function QuoteForm({ variant = "full" }: QuoteFormProps) {
 
   const inputClass = "w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
   const labelClass = "block text-sm font-medium text-gray-700 mb-1"
-
-  if (status === "success") {
-    return (
-      <div className="bg-purple-50 border border-purple-200 rounded-2xl p-8 text-center">
-        <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-          </svg>
-        </div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">Enquiry Received!</h3>
-        <p className="text-gray-600">
-          Thanks for reaching out. A licensed NZ insurance adviser will be in touch within 1 business day to discuss your cover options.
-        </p>
-      </div>
-    )
-  }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">

@@ -42,8 +42,49 @@ export default function CoverageSlugPage({ params }: { params: { slug: string } 
   const heroImg = heroImages[cover.slug] || heroImages["public-liability"]
   const overlay = heroOverlays[cover.slug] || heroOverlays["public-liability"]
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Insurance Referral",
+    "name": `${cover.name} for Content Creators`,
+    "description": cover.description,
+    "provider": {
+      "@type": "Organization",
+      "name": "Influencer Insurance NZ",
+      "url": "https://influencerinsurance.co.nz",
+    },
+    "areaServed": { "@type": "Country", "name": "New Zealand" },
+    "url": `https://influencerinsurance.co.nz/coverage/${cover.slug}/`,
+  }
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://influencerinsurance.co.nz/" },
+      { "@type": "ListItem", "position": 2, "name": "Coverage", "item": "https://influencerinsurance.co.nz/coverage/" },
+      { "@type": "ListItem", "position": 3, "name": cover.name },
+    ],
+  }
+
+  const faqSchema = cover.faqs && cover.faqs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": cover.faqs.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a },
+    })),
+  } : null
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
+
       {/* Tall hero with creator image */}
       <section className="relative text-white overflow-hidden min-h-[580px] flex flex-col justify-end">
         {/* Background image */}
@@ -180,6 +221,45 @@ export default function CoverageSlugPage({ params }: { params: { slug: string } 
                   <span>Exact coverage depends on the policy arranged by your adviser. Your adviser will confirm inclusions and exclusions before any policy is bound.</span>
                 </div>
               </div>
+
+              {/* Real Claim Scenarios */}
+              {cover.scenarios && cover.scenarios.length > 0 && (
+                <div>
+                  <div className="bg-gray-900 rounded-t-2xl px-6 py-4">
+                    <h2 className="text-xl font-bold text-white">Real Claim Scenarios</h2>
+                    <p className="text-gray-400 text-sm mt-1">Situations where {cover.name.toLowerCase()} steps in to protect NZ creators.</p>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 border border-t-0 border-gray-200 rounded-b-2xl overflow-hidden">
+                    {cover.scenarios.map((scenario, i) => (
+                      <div key={i} className="relative bg-white p-6 border-r border-gray-100 last:border-r-0">
+                        <div className="w-8 h-8 rounded-full bg-violet-600 text-white flex items-center justify-center text-sm font-extrabold mb-4">
+                          {i + 1}
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-sm mb-2 leading-snug">{scenario.title}</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">{scenario.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Coverage-specific FAQs */}
+              {cover.faqs && cover.faqs.length > 0 && (
+                <div>
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-9 h-9 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600 font-bold text-lg">❓</div>
+                    <h2 className="text-xl font-bold text-gray-900">Common Questions About {cover.name}</h2>
+                  </div>
+                  <div className="space-y-4">
+                    {cover.faqs.map((faq, i) => (
+                      <div key={i} className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+                        <h3 className="font-bold text-gray-900 mb-2 leading-snug">{faq.q}</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Other covers */}
               <div>

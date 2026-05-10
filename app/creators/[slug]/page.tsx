@@ -66,8 +66,32 @@ export default function CreatorSlugPage({ params }: { params: { slug: string } }
   const relatedPosts = blogPosts.filter((p) => relatedSlugs.includes(p.slug))
   const heroImg = heroImages[creator.slug] || "/images/creator-studio.png"
 
+  const pageUrl = `https://influencerinsurance.co.nz/creators/${creator.slug}/`
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://influencerinsurance.co.nz/" },
+      { "@type": "ListItem", "position": 2, "name": "Creators", "item": "https://influencerinsurance.co.nz/creators/" },
+      { "@type": "ListItem", "position": 3, "name": creator.name },
+    ],
+  }
+
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": `${creator.name} Insurance | Influencer Insurance NZ`,
+    "description": creator.description.slice(0, 160),
+    "url": pageUrl,
+    "breadcrumb": breadcrumbSchema,
+  }
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
+
       <section className="relative text-white overflow-hidden min-h-[420px] sm:min-h-[500px] flex flex-col justify-end">
         <div className="absolute inset-0">
           <img src={heroImg} alt={creator.name} className="w-full h-full object-cover object-center" />
@@ -138,6 +162,45 @@ export default function CreatorSlugPage({ params }: { params: { slug: string } }
                 </div>
               </div>
 
+              {/* Common Risk Scenarios */}
+              {creator.risks && creator.risks.length > 0 && (
+                <div>
+                  <div className="bg-gray-900 rounded-t-2xl px-6 py-4">
+                    <h2 className="text-xl font-bold text-white">Common Risk Scenarios</h2>
+                    <p className="text-gray-400 text-sm mt-1">Real situations where insurance makes a difference for {creator.name.toLowerCase()}.</p>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 border border-t-0 border-gray-200 rounded-b-2xl overflow-hidden">
+                    {creator.risks.map((risk, i) => (
+                      <div key={i} className="relative bg-white p-6 border-r border-gray-100 last:border-r-0">
+                        <div className="w-8 h-8 rounded-full bg-violet-600 text-white flex items-center justify-center text-sm font-extrabold mb-4">
+                          {i + 1}
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-sm mb-2 leading-snug">{risk.title}</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">{risk.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Frequently Asked Questions */}
+              {creator.faqs && creator.faqs.length > 0 && (
+                <div>
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-9 h-9 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600 font-bold text-lg">❓</div>
+                    <h2 className="text-xl font-bold text-gray-900">Frequently Asked Questions</h2>
+                  </div>
+                  <div className="space-y-4">
+                    {creator.faqs.map((faq, i) => (
+                      <div key={i} className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+                        <h3 className="font-bold text-gray-900 mb-2 leading-snug">{faq.q}</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Related blog posts */}
               {relatedPosts.length > 0 && (
                 <div>
@@ -183,7 +246,7 @@ export default function CreatorSlugPage({ params }: { params: { slug: string } }
 
             <div className="lg:col-span-1">
               <div className="sticky top-24">
-                <div className="bg-white border-2 border-violet-400 rounded-2xl shadow-lg p-6">
+                <div id="get-quote" className="bg-white border-2 border-violet-400 rounded-2xl shadow-lg p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{creator.name} Insurance Quote</h3>
                   <p className="text-gray-500 text-sm mb-5">Connect with a licensed broker who specialises in creator cover.</p>
                   <QuoteForm variant="compact" />

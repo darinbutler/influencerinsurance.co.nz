@@ -38,12 +38,23 @@ export default function BlogSlugPage({ params }: { params: { slug: string } }) {
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
-    image: post.image,
-    url: `${siteConfig.url}/blog/${post.slug}/`,
+    image: post.image.startsWith("/") ? `https://influencerinsurance.co.nz${post.image}` : post.image,
+    author: {
+      "@type": "Organization",
+      name: "Influencer Insurance NZ",
+      url: "https://influencerinsurance.co.nz",
+    },
     publisher: {
       "@type": "Organization",
-      name: siteConfig.schema.organizationName,
-      url: siteConfig.schema.organizationUrl,
+      name: "Influencer Insurance NZ",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://influencerinsurance.co.nz/logo.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://influencerinsurance.co.nz/blog/${post.slug}/`,
     },
   }
 

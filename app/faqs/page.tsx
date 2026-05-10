@@ -3,12 +3,24 @@ import { useState } from "react"
 import Link from "next/link"
 import { faqs } from "../../data/faqs"
 
+const faqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
+}
+
 export default function FAQsPage() {
   const [open, setOpen] = useState<number | null>(null)
   const categories = Array.from(new Set(faqs.map((f) => f.category)))
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }} />
+
       <section className="bg-gradient-hero text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">Frequently Asked Questions</h1>

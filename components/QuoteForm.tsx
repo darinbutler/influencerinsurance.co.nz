@@ -1,14 +1,15 @@
 "use client"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { useRouter } from "next/navigation"
-import Script from "next/script"
 import { siteConfig } from "../data/site-config"
+import TurnstileWidget, { type TurnstileHandle } from './TurnstileWidget';
 
 interface QuoteFormProps {
   variant?: "compact" | "full"
 }
 
 export default function QuoteForm({ variant = "full" }: QuoteFormProps) {
+  const turnstileRef = useRef<TurnstileHandle>(null);
   const [formData, setFormData] = useState({
     creatorType: "",
     coverNeeded: "",
@@ -28,15 +29,13 @@ export default function QuoteForm({ variant = "full" }: QuoteFormProps) {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const formEl = e.currentTarget
-    const fd = new FormData(formEl)
-    const cfToken = fd.get('cf-turnstile-response')
+    setStatus("sending")
+
+    const cfToken = await turnstileRef.current?.execute();
     if (!cfToken) {
       setStatus("error")
       return
     }
-
-    setStatus("sending")
 
     try {
       const payload = {
@@ -180,10 +179,7 @@ export default function QuoteForm({ variant = "full" }: QuoteFormProps) {
         <p className="text-red-600 text-sm">Something went wrong. Please complete the security check and try again.</p>
       )}
 
-      <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer strategy="afterInteractive" />
-      <div className="flex justify-center">
-        <div className="cf-turnstile" data-sitekey="0x4AAAAAADMnq1OKyxf3JvVv" data-size="invisible" />
-      </div>
+      <TurnstileWidget ref={turnstileRef} />
 
       <button
         type="submit"
